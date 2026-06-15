@@ -1,0 +1,46 @@
+[
+  {
+    "listing_id": "P-1001",
+    "url": "https://example.com/listing/P-1001",
+    "price_inr": 9000000,
+    "area_sqft": 1500,
+    "locality": "Patia",
+    "lat": 20.3499,
+    "lng": 85.8197,
+    "phone": "+91-9000000001",
+    "description": "DLF-side plot, 1500 sqft, 40 ft wide road, north facing. Plot No 221, Khata No 145. BDA approved."
+  },
+  {
+    "listing_id": "P-1005",
+    "url": "https://example.com/listing/P-1005",
+    "price_inr": 2000000,
+    "area_sqft": 1600,
+    "locality": "Patia",
+    "lat": 20.3540,
+    "lng": 85.8250,
+    "phone": "+91-9000000005",
+    "description": "URGENT distress sale! 1600 sqft only Rs 20 lakh, far below market. Quick deal."
+  },
+  {
+    "listing_id": "P-1006",
+    "url": "https://example.com/listing/P-1006",
+    "price_inr": 8500000,
+    "area_sqft": 1400,
+    "locality": "Patia",
+    "lat": 20.3460,
+    "lng": 85.8140,
+    "phone": "+91-9000000006",
+    "description": "1400 sqft agricultural land, paddy field, great investment near Patia. 30 ft road."
+  },
+  {
+    "listing_id": "P-1007",
+    "url": "https://example.com/listing/P-1007",
+    "price_inr": 21000000,
+    "area_sqft": 1700,
+    "locality": "Patia",
+    "lat": 20.3550,
+    "lng": 85.8260,
+    "phone": "+91-9000000007",
+    "description": "Prime 1700 sqft commercial plot, 50 ft road frontage, Rs 2.1 Cr negotiable."
+  }
+]
