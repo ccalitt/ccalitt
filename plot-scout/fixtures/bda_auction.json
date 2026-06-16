@@ -11,5 +11,31 @@
     "description": "BDA e-auction: corner commercial plot, 1800 sqft, 60 ft road frontage. Plot No 305, Khata No 88. Scheme: Chandaka.",
     "plot_no": "305",
     "khata_no": "88"
+  },
+  {
+    "notice_id": "BDA-3010",
+    "url": "https://bda.odisha.gov.in/eauction/BDA-3010",
+    "reserve_price": 13200000,
+    "area_sqft": 2200,
+    "locality": "Chandrasekharpur",
+    "lat": 20.3289,
+    "lng": 85.8155,
+    "contact": "BDA e-auction cell",
+    "description": "BDA e-auction: 2200 sqft corner plot, 80 ft road frontage, high visibility near Infocity approach. Plot No 740, Khata No 233.",
+    "plot_no": "740",
+    "khata_no": "233"
+  },
+  {
+    "notice_id": "BDA-3011",
+    "url": "https://bda.odisha.gov.in/eauction/BDA-3011",
+    "reserve_price": 11500000,
+    "area_sqft": 2300,
+    "locality": "Khandagiri",
+    "lat": 20.2600,
+    "lng": 85.7810,
+    "contact": "BDA e-auction cell",
+    "description": "BDA e-auction: 2300 sqft commercial plot, 60 ft road, close to NH-16. Plot No 410, Khata No 109.",
+    "plot_no": "410",
+    "khata_no": "109"
   }
 ]

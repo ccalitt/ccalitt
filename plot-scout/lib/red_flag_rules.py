@@ -35,6 +35,10 @@ def agri_kissam_flag(text: str) -> Optional[str]:
     is_agri = any(kw in text_l for kw in settings.AGRI_KISSAM_KEYWORDS)
     if not is_agri:
         return None
+    # Explicit "not converted" phrasing keeps the gate on regardless of any
+    # affirmative-keyword substring it may contain.
+    if any(neg in text_l for neg in settings.NEGATED_CONVERSION_KEYWORDS):
+        return "agri_kissam_no_conversion"
     has_conversion = any(kw in text_l for kw in settings.CONVERSION_EVIDENCE_KEYWORDS)
     if has_conversion:
         return None

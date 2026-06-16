@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>plot-scout · Bhubaneswar plot browser</title>
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        crossorigin="" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">▦</span>
+      <div>
+        <h1>plot-scout</h1>
+        <p class="tag">Bhubaneswar commercial-plot sourcing &amp; scoring · <span id="dbnote">offline dry-run data</span></p>
+      </div>
+    </div>
+    <div class="run-controls">
+      <select id="localitySelect" title="Locality to run"></select>
+      <button id="runBtn" class="btn">Run locality</button>
+      <button id="scanBtn" class="btn btn-primary">Scan all</button>
+      <span id="runStatus" class="run-status"></span>
+    </div>
+  </header>
+
+  <section id="cards" class="cards"><!-- summary cards injected --></section>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="browse">Browse</button>
+    <button class="tab" data-tab="reports">Reports</button>
+    <span class="gate-note" id="gateNote"></span>
+  </nav>
+
+  <main>
+    <section id="browse" class="tab-panel active">
+      <div class="browse-grid">
+        <aside class="filters">
+          <h3>Filters</h3>
+          <label class="f-label">Search<input type="text" id="searchBox" placeholder="locality, flag…" /></label>
+
+          <fieldset><legend>Comfort tier</legend>
+            <label><input type="checkbox" class="f-tier" value="low" checked /> low</label>
+            <label><input type="checkbox" class="f-tier" value="moderate" checked /> moderate</label>
+            <label><input type="checkbox" class="f-tier" value="stretch" checked /> stretch</label>
+          </fieldset>
+
+          <fieldset><legend>Value band</legend>
+            <label><input type="checkbox" class="f-value" value="A" checked /> A</label>
+            <label><input type="checkbox" class="f-value" value="B" checked /> B</label>
+            <label><input type="checkbox" class="f-value" value="C" checked /> C</label>
+            <label><input type="checkbox" class="f-value" value="D" checked /> D</label>
+            <label><input type="checkbox" class="f-value" value="gated" checked /> gated</label>
+          </fieldset>
+
+          <label class="f-label">Max price (₹)
+            <input type="range" id="priceRange" min="0" step="500000" />
+            <span id="priceLabel"></span>
+          </label>
+
+          <label class="f-check"><input type="checkbox" id="hideFlagged" /> Hide flagged plots</label>
+          <button id="resetFilters" class="btn btn-ghost">Reset filters</button>
+          <p class="result-count" id="resultCount"></p>
+        </aside>
+
+        <div class="results">
+          <table id="plotTable">
+            <thead>
+              <tr>
+                <th data-sort="rank">#</th>
+                <th data-sort="locality">Locality</th>
+                <th data-sort="est_price">Price</th>
+                <th data-sort="price_per_sqft">₹/sqft</th>
+                <th data-sort="area_sqft">Area</th>
+                <th data-sort="value_band">Value</th>
+                <th data-sort="commercial_band">Comm.</th>
+                <th data-sort="confidence">Conf.</th>
+                <th data-sort="comfort_tier">Loan tier</th>
+                <th data-sort="zoning_status">Zoning</th>
+                <th>Flags</th>
+              </tr>
+            </thead>
+            <tbody><!-- rows --></tbody>
+          </table>
+        </div>
+
+        <div class="map-wrap">
+          <div id="map"></div>
+          <div class="legend" id="legend"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reports" class="tab-panel">
+      <div class="reports-grid">
+        <div><h3>Telegram digest (top 5)</h3><pre id="digestPre" class="report"></pre></div>
+        <div><h3>Weekly review</h3><pre id="weeklyPre" class="report"></pre></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="drawer" class="drawer hidden">
+    <div class="drawer-inner">
+      <button id="drawerClose" class="drawer-close">×</button>
+      <div id="drawerBody"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

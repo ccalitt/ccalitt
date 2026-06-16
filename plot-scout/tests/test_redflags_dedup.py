@@ -19,6 +19,9 @@ def test_agri_kissam_gate():
     # conversion evidence clears it
     assert rf.agri_kissam_flag("agricultural land, NA converted for commercial use") is None
     assert rf.agri_kissam_flag("commercial plot, BDA approved") is None
+    # "no conversion done yet" must NOT be read as conversion evidence
+    assert rf.agri_kissam_flag("agricultural paddy land, no conversion done yet") == "agri_kissam_no_conversion"
+    assert rf.agri_kissam_flag("agri land, not converted") == "agri_kissam_no_conversion"
 
 
 def test_blocks_top_tier():

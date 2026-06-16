@@ -42,5 +42,148 @@
     "lng": 85.8260,
     "phone": "+91-9000000007",
     "description": "Prime 1700 sqft commercial plot, 50 ft road frontage, Rs 2.1 Cr negotiable."
+  },
+  {
+    "listing_id": "C-2102",
+    "url": "https://example.com/listing/C-2102",
+    "price_inr": 16800000,
+    "area_sqft": 2400,
+    "locality": "Chandrasekharpur",
+    "lat": 20.3260,
+    "lng": 85.8120,
+    "phone": "+91-9000002102",
+    "description": "Premium 2400 sqft plot, 60 ft road, near DN Regalia mall. Rs 1.68 Cr."
+  },
+  {
+    "listing_id": "C-2104",
+    "url": "https://example.com/listing/C-2104",
+    "price_inr": 13000000,
+    "area_sqft": 2000,
+    "locality": "Chandrasekharpur",
+    "lat": 20.3270,
+    "lng": 85.8130,
+    "phone": "+91-9000002104",
+    "description": "2000 sqft corner plot, 40 ft road, east facing. Plot No 512. BDA approved."
+  },
+  {
+    "listing_id": "C-2105",
+    "url": "https://example.com/listing/C-2105",
+    "price_inr": 12500000,
+    "area_sqft": 2100,
+    "locality": "Chandrasekharpur",
+    "lat": 20.3320,
+    "lng": 85.8200,
+    "phone": "+91-9000002105",
+    "description": "2100 sqft plot near Kalinga Hospital, 50 ft road. Rs 1.25 Cr."
+  },
+  {
+    "listing_id": "PA-3101",
+    "url": "https://example.com/listing/PA-3101",
+    "price_inr": 9000000,
+    "area_sqft": 2500,
+    "locality": "Patrapada",
+    "lat": 20.2444,
+    "lng": 85.7783,
+    "phone": "+91-9000003101",
+    "description": "2500 sqft plot near Ring Road, 40 ft road, south facing. Developing commercial belt."
+  },
+  {
+    "listing_id": "PA-3103",
+    "url": "https://example.com/listing/PA-3103",
+    "price_inr": 9500000,
+    "area_sqft": 2800,
+    "locality": "Patrapada",
+    "lat": 20.2420,
+    "lng": 85.7760,
+    "phone": "+91-9000003103",
+    "description": "2800 sqft plot, 30 ft road. Good for showroom or warehouse."
+  },
+  {
+    "listing_id": "PA-3104",
+    "url": "https://example.com/listing/PA-3104",
+    "price_inr": 8500000,
+    "area_sqft": 2600,
+    "locality": "Patrapada",
+    "lat": 20.2470,
+    "lng": 85.7820,
+    "phone": "+91-9000003104",
+    "description": "2600 sqft plot - NOTE: disputed boundary, court case pending with neighbour. 30 ft road."
+  },
+  {
+    "listing_id": "K-4101",
+    "url": "https://example.com/listing/K-4101",
+    "price_inr": 11500000,
+    "area_sqft": 2300,
+    "locality": "Khandagiri",
+    "lat": 20.2585,
+    "lng": 85.7796,
+    "phone": "+91-9000004101",
+    "description": "2300 sqft corner commercial plot, 60 ft road frontage, just off NH-16. High visibility. Plot No 88."
+  },
+  {
+    "listing_id": "T-5101",
+    "url": "https://example.com/listing/T-5101",
+    "price_inr": 6500000,
+    "area_sqft": 2400,
+    "locality": "Tomando",
+    "lat": 20.2520,
+    "lng": 85.7700,
+    "phone": "+91-9000005101",
+    "description": "Affordable 2400 sqft plot, 30 ft road. Emerging locality, good entry price."
+  },
+  {
+    "listing_id": "T-5102",
+    "url": "https://example.com/listing/T-5102",
+    "price_inr": 1500000,
+    "area_sqft": 3000,
+    "locality": "Tomando",
+    "lat": 20.2540,
+    "lng": 85.7720,
+    "phone": "+91-9000005102",
+    "description": "URGENT! 3000 sqft only Rs 15 lakh, way below market, immediate sale needed."
+  },
+  {
+    "listing_id": "S-6101",
+    "url": "https://example.com/listing/S-6101",
+    "price_inr": 10000000,
+    "area_sqft": 5000,
+    "locality": "Sundarpada",
+    "lat": 20.2200,
+    "lng": 85.8300,
+    "phone": "+91-9000006101",
+    "description": "Large 5000 sqft plot on arterial road, 50 ft frontage. Rs 1 Cr."
+  },
+  {
+    "listing_id": "G-7101",
+    "url": "https://example.com/listing/G-7101",
+    "price_inr": 7000000,
+    "area_sqft": 2200,
+    "locality": "Gothapatna",
+    "lat": 20.2700,
+    "lng": 85.7600,
+    "phone": "+91-9000007101",
+    "description": "2200 sqft plot near NIT campus, 40 ft road. Developing area."
+  },
+  {
+    "listing_id": "G-7102",
+    "url": "https://example.com/listing/G-7102",
+    "price_inr": 6800000,
+    "area_sqft": 2000,
+    "locality": "Gothapatna",
+    "lat": 20.2720,
+    "lng": 85.7620,
+    "phone": "+91-9000007102",
+    "description": "2000 sqft plot, 30 ft road, near Gothapatna square."
+  },
+  {
+    "listing_id": "G-7103",
+    "url": "https://example.com/listing/G-7103",
+    "price_inr": 7800000,
+    "area_sqft": 2400,
+    "locality": "Gothapatna",
+    "lat": 20.2680,
+    "lng": 85.7580,
+    "phone": "+91-9000007103",
+    "description": "2400 sqft corner plot, 40 ft road frontage, east facing."
   }
 ]

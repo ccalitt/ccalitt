@@ -124,9 +124,19 @@ AGRI_KISSAM_KEYWORDS = (
     "agricultural", "agri land", "krushi", "kisam", "kissam",
     "patita", "danga", "farm land", "farmland", "paddy",
 )
+# Affirmative evidence that agricultural land has been converted. NOTE: a bare
+# "conversion" is deliberately excluded — it matches negations like "no
+# conversion done yet" and would wrongly clear the gate.
 CONVERSION_EVIDENCE_KEYWORDS = (
-    "converted", "conversion", "non-agricultural", "na converted",
-    "na order", "land use change", "clu", "commercial use approved",
+    "converted", "non-agricultural", "na converted", "na order",
+    "conversion order", "conversion done", "land use change", "clu",
+    "commercial use approved",
+)
+# Phrases that explicitly mean NOT converted — these keep the agri gate on even
+# if an affirmative keyword substring also appears.
+NEGATED_CONVERSION_KEYWORDS = (
+    "not converted", "no conversion", "without conversion",
+    "yet to be converted", "conversion pending", "unconverted", "un-converted",
 )
 
 # --------------------------------------------------------------------------

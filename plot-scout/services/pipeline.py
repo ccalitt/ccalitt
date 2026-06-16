@@ -61,7 +61,7 @@ def _persist_candidate(conn: sqlite3.Connection, rec: dict[str, Any]) -> None:
     )
 
 
-def _persist_canonical(conn: sqlite3.Connection, plot: dict[str, Any]) -> None:
+def _persist_canonical(conn: sqlite3.Connection, plot: dict[str, Any]) -> int:
     ts = state_store.now_iso()
     conn.execute(
         "INSERT INTO canonical_plots(canonical_key, locality, lat, lng, area_sqft, "
@@ -86,6 +86,20 @@ def _persist_canonical(conn: sqlite3.Connection, plot: dict[str, Any]) -> None:
             plot.get("comfort_tier"), plot.get("n_sources", 1), ts, ts, ts,
         ),
     )
+    row = conn.execute(
+        "SELECT id FROM canonical_plots WHERE canonical_key=?", (plot["canonical_key"],)
+    ).fetchone()
+    return row["id"]
+
+
+def _link_candidates(conn: sqlite3.Connection, canonical_id: int,
+                     group: list[dict[str, Any]]) -> None:
+    """Point each member candidate at its resolved canonical plot."""
+    for member in group:
+        conn.execute(
+            "UPDATE candidates SET canonical_id=? WHERE source=? AND source_id=?",
+            (canonical_id, member["source"], str(member["source_id"])),
+        )
 
 
 def run_dry_run(
@@ -150,7 +164,9 @@ def run_dry_run(
             result = scoring.score_plot(rep, baseline, zoning["zoning_status"])
             plot = {**rep, **result, "canonical_key": dedup_matcher.canonical_key(grp),
                     "n_sources": len(grp)}
-            _persist_canonical(conn, plot)
+            canonical_id = _persist_canonical(conn, plot)
+            _link_candidates(conn, canonical_id, grp)
+            plot["id"] = canonical_id
             scored_plots.append(plot)
         conn.commit()
         state_store.log_stage(conn, run_id, "score", records_out=len(scored_plots))
@@ -183,6 +199,34 @@ def run_dry_run(
                 for d in dropped
             ],
         }
+
+
+def run_scan(
+    localities: Optional[list[str]] = None,
+    db_path: Optional[str] = None,
+    sources: Optional[list[str]] = None,
+) -> dict[str, Any]:
+    """Run the dry-run pipeline across multiple localities into one DB.
+
+    Defaults to the whole locality whitelist. Used to populate the browse UI.
+    The production sourcing scope remains gated (§11); this is the same offline,
+    deterministic pipeline run once per locality.
+    """
+    localities = localities or list(settings.LOCALITY_WHITELIST)
+    per_locality: list[dict[str, Any]] = []
+    totals = {"target_count": 0, "kept": 0, "dropped": 0, "canonical_plots": 0}
+    for loc in localities:
+        res = run_dry_run(loc, db_path=db_path, sources=sources)
+        per_locality.append({k: res[k] for k in
+                             ("locality", "target_count", "kept", "dropped",
+                              "canonical_plots")})
+        for k in totals:
+            totals[k] += res.get(k, 0)
+    return {
+        "localities_scanned": len(localities),
+        "totals": totals,
+        "per_locality": per_locality,
+    }
 
 
 def _representative(group: list[dict[str, Any]]) -> dict[str, Any]:

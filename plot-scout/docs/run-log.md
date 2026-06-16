@@ -21,6 +21,26 @@ the human-readable build/change narrative.
 - **Schedules + channels (§8) NOT wired** — gated on owner go-ahead at the
   dry-run gate.
 
+## 2026-06-16 — Local browse UI + fixes (ADR 0004)
+- Added a stdlib-only browse UI under `web/`: JSON API (`web/api.py`) + a
+  vanilla single-page app (`web/static/`) with a dashboard, sortable/filterable
+  table, Leaflet map (plots + landmarks + NH-16), per-plot detail drawer
+  (contract, distances, comparables, sources, diligence), reports tab, and
+  Run/Scan controls. Launch: `python web/server.py --scan --open`.
+- Engine changes: populate `candidates.canonical_id` (was unused); add
+  `pipeline.run_scan()` to scan all whitelist localities into one DB.
+- Enriched fixtures to ~17 listings across 7 localities (Patia,
+  Chandrasekharpur, Patrapada, Khandagiri, Tomando, Sundarpada, Gothapatna) so
+  the UI has a realistic spread of bands, comfort tiers, flags, gated value
+  scores, and a ceiling drop. Scan → 24 candidates → 2 dropped → 23 canonical.
+- **Bug fix:** `agri_kissam_flag` mis-read "no conversion done yet" as
+  conversion evidence (bare "conversion" substring), wrongly clearing the
+  agricultural gate. Now requires affirmative evidence + negation guard. The
+  Khandagiri agri plot is correctly flagged and sinks in the ranking.
+- 24 tests pass (added `tests/test_web_api.py`).
+- Project relocated to its **own private repo** `ccalitt/plot-scout-engine`
+  (moved out of the `ccalitt/ccalitt` profile repo).
+
 ### Next (awaiting owner)
 1. Owner supplies 15–20 ranked Bhubaneswar plots → load into `gold_set`.
 2. Re-run `evaluator`; confirm Spearman ≥ trust threshold.

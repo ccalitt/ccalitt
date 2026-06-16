@@ -26,6 +26,7 @@ config/        single source of truth (settings.py)
 lib/           deterministic, reusable capabilities (§9)
   source_adapters/   BDA + Odisha auction, inbox, portal
 services/      evaluator (§4) + dry-run pipeline (§11)
+web/           local browse UI (stdlib http.server + single-page app)
 docs/          rubric (source of truth), schema, ADRs, lib-registry, run-log
 data/          schema.sql (+ runtime SQLite, gitignored)
 fixtures/      offline sample listings for the dry run
@@ -35,6 +36,10 @@ tests/         unit + integration tests
 
 ## Quick start
 ```bash
+# 1. Interactive browse UI — scan all localities, then open in your browser
+python web/server.py --scan --open
+#    → http://127.0.0.1:8000   (zero installs; stdlib http.server)
+
 # Dry run on one locality, fully offline against fixtures (no tokens, no network)
 python run.py --locality patia
 
@@ -44,6 +49,28 @@ python -m pytest -q
 ```
 
 The runtime is **standard-library only**.
+
+## Browse UI (`web/`)
+A local, dependency-free viewer over the SQLite DB (see ADR 0004):
+- **Dashboard** — canonical plots, candidates, flagged/value-gated counts,
+  baseline coverage %, evaluation status, budget ceiling, sprint countdown.
+- **Sortable/filterable table** — filter by comfort tier, value band, max price,
+  text, and hide-flagged; sort any column. Flagged plots tinted; top 5 marked.
+- **Map** (Leaflet/OSM) — plots colour-coded by band/flag, landmarks, and the
+  NH-16 polyline. Click a marker or row for detail.
+- **Detail drawer** — full §3 output contract, distances to every landmark,
+  comparables (the value gate), merged source listings, financeability, and the
+  due-diligence checklist.
+- **Reports tab** — the Telegram digest and weekly review previews.
+- **Run controls** — "Run locality" / "Scan all" re-run the offline pipeline and
+  refresh. No schedules, no live sourcing (the §11 gate is untouched).
+
+```bash
+python web/server.py            # serve existing DB on :8000
+python web/server.py --scan     # (re)populate from fixtures, then serve
+python web/server.py --port 9000 --db /tmp/scratch.db --open
+```
+Leaflet tiles need internet; if offline, the table and detail view still work.
 
 ## Pipeline (dry-run path)
 ```
