@@ -1,0 +1,38 @@
+[
+  {
+    "auction_id": "OEA-4004",
+    "url": "https://eauction.odisha.gov.in/OEA-4004",
+    "reserve_price": 7800000,
+    "area_sqft": 1200,
+    "locality": "Patia",
+    "lat": 20.3470,
+    "lng": 85.8160,
+    "contact": "DRT Cuttack",
+    "description": "Bank e-auction: residential plot 1200 sqft near Patia square. Khata No 210.",
+    "khata_no": "210"
+  },
+  {
+    "auction_id": "OEA-4010",
+    "url": "https://eauction.odisha.gov.in/OEA-4010",
+    "reserve_price": 10500000,
+    "area_sqft": 3000,
+    "locality": "Patrapada",
+    "lat": 20.2460,
+    "lng": 85.7800,
+    "contact": "SBI stressed assets",
+    "description": "Bank e-auction: 3000 sqft plot near Ring Road, Patrapada. 40 ft road access. Khata No 318.",
+    "khata_no": "318"
+  },
+  {
+    "auction_id": "OEA-4011",
+    "url": "https://eauction.odisha.gov.in/OEA-4011",
+    "reserve_price": 7000000,
+    "area_sqft": 2600,
+    "locality": "Tomando",
+    "lat": 20.2500,
+    "lng": 85.7680,
+    "contact": "DRT Cuttack",
+    "description": "Bank e-auction: 2600 sqft plot in Tomando, 30 ft road. Khata No 455.",
+    "khata_no": "455"
+  }
+]

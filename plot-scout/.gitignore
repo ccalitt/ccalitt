@@ -1,0 +1,16 @@
+# SQLite runtime database (schema lives in data/schema.sql)
+data/*.db
+data/*.db-wal
+data/*.db-shm
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local secrets / tokens (Telegram, Gmail, geocoder provider keys)
+.env
+*.local
+secrets.json

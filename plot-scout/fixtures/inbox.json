@@ -1,0 +1,29 @@
+[
+  {
+    "message_id": "M-2001",
+    "listing_url": "https://example.com/listing/M-2001",
+    "price_inr": 9200000,
+    "area_sqft": 1500,
+    "locality": "Patia",
+    "phone": "+91-9000000001",
+    "body": "Premium plot near KIIT, 1500 sqft, north facing, 40ft road. BDA approved. Contact owner."
+  },
+  {
+    "message_id": "M-2010",
+    "listing_url": "https://example.com/listing/M-2010",
+    "price_inr": 12000000,
+    "area_sqft": 1800,
+    "locality": "Chandrasekharpur",
+    "phone": "+91-9000002010",
+    "body": "1800 sqft plot in Chandrasekharpur, 30 ft road, near CSpur square. Rs 1.2 Cr, clear title."
+  },
+  {
+    "message_id": "M-2011",
+    "listing_url": "https://example.com/listing/M-2011",
+    "price_inr": 8000000,
+    "area_sqft": 4000,
+    "locality": "Khandagiri",
+    "phone": "+91-9000002011",
+    "body": "4000 sqft agricultural paddy land near Khandagiri, no conversion done yet. Cheap at Rs 80 lakh."
+  }
+]

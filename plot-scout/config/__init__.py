@@ -1,0 +1,1 @@
+"""plot-scout configuration package."""
