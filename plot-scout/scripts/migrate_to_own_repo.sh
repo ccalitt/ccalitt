@@ -43,9 +43,16 @@ git init -b main >/dev/null
 git add .
 git commit -q -m "plot-scout-engine: initial import (sourcing & scoring engine + browse UI)"
 
-# Create the private repo and push main in one step.
-gh repo create "$OWNER/$REPO" --private --source=. --remote=origin --push
+# Push to the repo. If it already exists, just add the remote and push;
+# otherwise create it private and push in one step.
+if gh repo view "$OWNER/$REPO" >/dev/null 2>&1; then
+  echo "Repo $OWNER/$REPO already exists — pushing to it."
+  git remote add origin "https://github.com/$OWNER/$REPO.git" 2>/dev/null || true
+  git push -u origin main
+else
+  gh repo create "$OWNER/$REPO" --private --source=. --remote=origin --push
+fi
 
 echo
-echo "Done → https://github.com/$OWNER/$REPO  (private, project at root)"
+echo "Done → https://github.com/$OWNER/$REPO  (project at root)"
 echo "Next: cd $STAGING ; python web/server.py --scan --open"
